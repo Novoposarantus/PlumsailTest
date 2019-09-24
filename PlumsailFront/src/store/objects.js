@@ -45,22 +45,22 @@ export const objects = {
                 commit(defaultVuex.mutationsNames.finishLoading);
             }
         },
-        "SAVE" : async ({commit})=>{
+        "SAVE" : async ({commit}, form)=>{
             commit(defaultVuex.mutationsNames.startLoading);
-            try {
-                await request(process.env.VUE_APP_OBJECTS, 'POST');
+            // try {
+                await request(process.env.VUE_APP_OBJECTS, 'POST', form);
                 commit(defaultVuex.mutationsNames.finishLoading);
-            }
-            catch (error) {
-                if(!error.response || error.response.status !== 400){
-                    commit(defaultVuex.mutationsNames.setError);
-                }
-                else
-                {
-                    commit(defaultVuex.mutationsNames.setError, error.response.data);
-                }
-                commit(defaultVuex.mutationsNames.finishLoading);
-            }
+            // }
+            // catch (error) {
+            //     if(!error.response || error.response.status !== 400){
+            //         commit(defaultVuex.mutationsNames.setError);
+            //     }
+            //     else
+            //     {
+            //         commit(defaultVuex.mutationsNames.setError, error.response.data);
+            //     }
+            //     commit(defaultVuex.mutationsNames.finishLoading);
+            // }
         },
     }
 };

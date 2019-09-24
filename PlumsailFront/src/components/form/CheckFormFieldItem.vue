@@ -122,8 +122,4 @@ export default {
 .checkbox input:checked + .checkbox-text:after {
 	left: 26px;
 }
-
-.checkbox input.error-input + .checkbox-text:before {
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 2px #e97272cc;
-}
 </style>

@@ -47,17 +47,13 @@ export default {
 
 .wrapper::-webkit-scrollbar {
     width: 6px;
-    background-color: #f0f8ff;
 }
 
 .wrapper::-webkit-scrollbar-thumb {
-    background-color: #363636cc;
     border-radius: 10px;
 }
 
 .wrapper::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px #9facb9;
-    background-color: #ffffff00;
     border-radius: 10px;
 }
 

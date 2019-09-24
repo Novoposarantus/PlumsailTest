@@ -106,7 +106,4 @@ export default {
 .radio input:checked + .radio__text:after {
 	opacity: 1;
 }
-.radio input.error-input + .radio__text:before {
-	box-shadow: 0 0 0 3px #e97272cc;
-}
 </style>

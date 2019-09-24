@@ -110,6 +110,7 @@ export default {
     background: #ffffff !important;
     outline: none;
     padding: 3px 5px;
+    box-sizing: border-box;
 }
 
 
@@ -117,21 +118,11 @@ export default {
     border: 1px solid #e97272;
 }
 
-
-.input::-webkit-scrollbar {
-    width: 10px;
-    background-color: #ffffff00;
-    cursor: default;
-}
-
 .input::-webkit-scrollbar-thumb {
-    background-color: #363636cc;
     border-radius: 2px;
 }
 
 .input::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px #9facb9;
-    background-color: #f0f8ff;
     border-radius: 2px;
 }
 </style>
