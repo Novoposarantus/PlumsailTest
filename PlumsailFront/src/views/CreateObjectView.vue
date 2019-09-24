@@ -1,52 +1,67 @@
 <template>
     <div class="wrapper">
-        <text-form-field 
+        <text-field 
             type="text" 
             label="text" 
             v-model="form.name"
             :error="errors.name"
         />
-        <text-form-field 
+        <text-field 
             type="textarea" 
             label="url" 
-            v-model="form.name"
-            :error="errors.name"
+            v-model="form.description"
+            :error="errors.description"
         />
-        <text-form-field 
-            type="text" 
-            label="text" 
-            v-model="form.name"
-            :error="errors.name"
-        />
-        <text-form-field 
-            type="textarea" 
-            label="url" 
-            v-model="form.name"
-            :error="errors.name"
-        />
-        <text-form-field 
-            type="text" 
-            label="text" 
-            v-model="form.name"
-            :error="errors.name"
-        />
+        <check-field
+            label="Ваши увлечения"
+            :error="errors.che"
+        >
+            <check-field-item 
+                v-model="form.che"
+                :error="errors.che"
+                value="Привет"
+                label="Привет"
+            />
+            <check-field-item 
+                v-model="form.che"
+                :error="errors.che"
+                value="Привет2"
+                label="Привет2"
+            />
+            <check-field-item 
+                v-model="form.che"
+                :error="errors.che"
+                value="Привет3"
+                label="Привет3"
+            />
+        </check-field>
     </div>
 </template>
 
 <script>
-import TextFormField from '../components/form/TextFormField';
+import TextField from '../components/form/TextFormField';
+import CheckField from '../components/form/CheckFormField';
+import CheckFieldItem from '../components/form/CheckFormFieldItem';
+import RadioFieldItem from '../components/form/RadioFormFieldItem';
 
 export default {
     components: {
-        TextFormField
+        TextField,
+        CheckFieldItem,
+        RadioFieldItem,
+        CheckField
     },
     data() {
         return {
             form: {
-                name: ''
+                name: '',
+                description: '',
+                che: []
             },
             errors: {
-                name: null
+                name: null,
+                description: null,
+                che: null
             }
         }
     }

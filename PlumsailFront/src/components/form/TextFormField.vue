@@ -4,7 +4,7 @@
         <component
             :is="component"
             v-bind="$props"
-            :class="`form-input ${valideClass}`" 
+            :class="`input ${valideClass}`" 
             :id="id"
             @input="handler($event)"
         />
@@ -84,7 +84,7 @@ export default {
             return this._id;
         },
         valideClass() {
-            return this.error ? 'form-error-input' : '';
+            return this.error ? 'error-input' : '';
         }
     },
     methods: {
@@ -94,3 +94,44 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none;
+    padding: 3px 5px;
+}
+
+
+.error-input {
+    border: 1px solid #e97272;
+}
+
+
+.input::-webkit-scrollbar {
+    width: 10px;
+    background-color: #ffffff00;
+    cursor: default;
+}
+
+.input::-webkit-scrollbar-thumb {
+    background-color: #363636cc;
+    border-radius: 2px;
+}
+
+.input::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #9facb9;
+    background-color: #f0f8ff;
+    border-radius: 2px;
+}
+</style>

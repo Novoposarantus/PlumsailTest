@@ -16,8 +16,8 @@
 
 <script>
 import LinkText from './common/LinkText';
-import listIcon from '../../../public/list.png';
-import editIcon from '../../../public/edit.png';
+import listIcon from '../../../public/images/list.png';
+import editIcon from '../../../public/images/edit.png';
 import { routes } from '../../support';
 
 export default {

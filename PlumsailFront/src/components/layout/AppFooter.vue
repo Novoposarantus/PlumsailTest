@@ -2,7 +2,7 @@
     <div class="wrapper default-page-wrapper">
       <div>
         <a href="https://github.com/Novoposarantus/PlumsailTest" target="_blank" class="icon">
-          <img class="icon" src="../../../public/github.png" />
+          <img class="icon" src="../../../public/images/github.png" />
         </a>
       </div>
       <div>
@@ -20,7 +20,6 @@
       </div>
     </div>
 </template>
-
 
 <style scoped>
 .wrapper {

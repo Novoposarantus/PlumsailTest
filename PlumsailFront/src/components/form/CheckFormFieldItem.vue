@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <label class="title" :for="id">
+    <div class="wrapper">
+        <label class="title checkbox" :for="id">
             <input 
                 :class="`input ${valideClass}`" 
                 :id="id" 
@@ -9,7 +9,7 @@
                 :value="value" 
                 @change="updateInput"
             >
-            {{title}}
+            <div class="checkbox-text">{{label}}</div>
         </label>
     </div>
 </template>
@@ -27,23 +27,29 @@ export default {
     modelValue: {
         default: false
     },
-    title: {
+    label: {
         type: String,
         required: true
     },
-    trueValue: {
-        default: true
-    },
-    falseValue: {
-        default: false
-    }
+    error: String
+  },
+  data() {
+      return {
+        _id: null
+      }
   },
   computed: {
     shouldBeChecked() {
-        if (this.modelValue instanceof Array) {
-            return this.modelValue.includes(this.value)
+        return this.modelValue.includes(this.value)
+    },
+    id() {
+        if (!this._id) {
+            this._id = `f${(~~(Math.random()*1e8)).toString(16)}`;
         }
-        return this.modelValue === this.trueValue
+        return this._id;
+    },
+    valideClass() {
+        return this.error ? 'error-input' : '';
     }
   },
   methods: {
@@ -64,38 +70,60 @@ export default {
 </script>
 
 <style scoped>
-.title{
-    font-size: 18px;
-    max-width: 100%;
-    padding-left: 1px;
+.wrapper {
+    padding: 7px 0;
 }
 
-.input {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    font-size: 18px;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    background: #ffffff !important;
-    outline: none;
-    padding: 3px 5px;
+.title {
+    font-size: 16px;
 }
 
-.error-input{
-    border: 1px solid #e97272;
+.checkbox input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
 }
 
-.error-text {
-    display: block;
-    color: #e97272;
-    font-size: 12px;
-    height: 14px;
-    max-width: 100%;
-    padding-left: 1px;
+.checkbox-text {
+	position: relative;
+	padding: 0 0 0 60px;
+	cursor: pointer;
 }
 
+.checkbox-text:before {
+	content: '';
+	position: absolute;
+	top: -4px;
+	left: 0;
+	width: 50px;
+	height: 26px;
+	border-radius: 13px;
+	background: #CDD1DA;
+	transition: .2s;
+}
+
+.checkbox-text:after {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 10px;
+	background: #FFF;
+	transition: .2s;
+}
+
+.checkbox input:checked + .checkbox-text:before {
+	background: rgb(85, 174, 209);
+}
+
+.checkbox input:checked + .checkbox-text:after {
+	left: 26px;
+}
+
+.checkbox input.error-input + .checkbox-text:before {
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 2px #e97272cc;
+}
 </style>

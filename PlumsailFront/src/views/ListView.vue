@@ -57,7 +57,7 @@ export default {
 
 .wrapper::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px #9facb9;
-    background-color: #f0f8ff;
+    background-color: #ffffff00;
     border-radius: 10px;
 }
 
