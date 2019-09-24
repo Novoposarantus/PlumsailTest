@@ -35,6 +35,23 @@
                 label="Привет3"
             />
         </check-field>
+        <check-field
+            label="Ваши увлечения 2"
+            :error="errors.radi"
+        >
+            <radio-field-item 
+                v-model="form.radi"
+                :error="errors.radi"
+                value="Пока"
+                label="Пока"
+            />
+            <radio-field-item 
+                v-model="form.radi"
+                :error="errors.radi"
+                value="Пока2"
+                label="Пока2"
+            />
+        </check-field>
     </div>
 </template>
 
@@ -56,12 +73,14 @@ export default {
             form: {
                 name: '',
                 description: '',
-                che: []
+                che: [],
+                radi: null
             },
             errors: {
                 name: null,
                 description: null,
-                che: null
+                che: null,
+                radi: null
             }
         }
     }

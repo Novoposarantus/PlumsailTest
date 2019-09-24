@@ -116,7 +116,7 @@ export default {
 }
 
 .checkbox input:checked + .checkbox-text:before {
-	background: rgb(85, 174, 209);
+	background: #55aed1;
 }
 
 .checkbox input:checked + .checkbox-text:after {
