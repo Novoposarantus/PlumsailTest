@@ -5,6 +5,8 @@ import { sync } from 'vuex-router-sync';
 import {createStore} from './store';
 import {createRouter} from './router';
 
+import '../public/styles.css';
+
 const store = createStore();
 const router = createRouter(store);
 

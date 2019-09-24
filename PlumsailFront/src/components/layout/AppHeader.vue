@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="content">
+    <div class="content default-page-wrapper">
       <div class="header-text">Тестовое задание</div>
       <div class="nav">
         <router-link class="link" :to="{name: routes.createObject.name}">
@@ -48,8 +48,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 800px;
-  max-width: 100%;
   padding: 0 10px;
 }
 

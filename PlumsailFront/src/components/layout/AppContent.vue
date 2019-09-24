@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper default-page-wrapper">
         <router-view></router-view>
     </div>
 </template>
@@ -13,10 +13,6 @@ export default {
 <style scoped>
 .wrapper {
     flex: 1 0 auto;
-    margin: 0 auto;
-    width: 800px;
-    max-width: 100%;
     padding: 5px;
-    box-sizing: border-box;
 }
 </style>

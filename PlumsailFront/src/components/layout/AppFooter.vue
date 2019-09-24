@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper default-page-wrapper">
       <div>
         <a href="https://github.com/Novoposarantus/PlumsailTest" target="_blank" class="icon">
           <img class="icon" src="../../../public/github.png" />
@@ -25,15 +25,11 @@
 <style scoped>
 .wrapper {
   flex: 0 0 auto;
-  width: 800px;
-  max-width: 100%;
-  margin: 0 auto;
   border-top: 1px solid rgb(210,210,215);
   padding: 5px 10px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
 }
 
 .icon {

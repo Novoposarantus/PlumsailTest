@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="main-wrapper">
+  <div id="app" class="main-wrapper back-color">
     <app-header />
     <app-content />
     <app-footer />
@@ -31,18 +31,9 @@ export default {
 </script>
 
 <style>
-
-html, body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: #f0f8ff;
+  min-height: 100%;
 }
 </style>
