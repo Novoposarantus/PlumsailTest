@@ -3,7 +3,7 @@
     <app-header />
     <app-content />
     <app-footer />
-    <app-progress v-show="isLoading" />
+    <app-progress v-if="isLoading" />
   </div>
 </template>
 
