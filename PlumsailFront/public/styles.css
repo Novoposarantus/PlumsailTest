@@ -47,6 +47,26 @@ body {
     padding-left: 1px;
 }
 
+.form-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none;
+    padding: 3px 5px;
+    box-sizing: border-box;
+}
+
+
+.form-error-input {
+    border: 1px solid #e97272;
+}
 
 ::-webkit-scrollbar {
     background-color: #f0f8ff;

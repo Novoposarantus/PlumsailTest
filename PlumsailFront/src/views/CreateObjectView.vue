@@ -11,9 +11,14 @@
             />
             <text-field 
                 type="date" 
-                label="Дата рождения" 
+                label="date" 
                 v-model="form.birthdate"
                 :error="errors.birthdate"
+            />
+            <select-field
+                :options="dropDown"
+                v-model="form.sity"
+                :error="errors.sity"
             />
             <text-field 
                 type="textarea" 
@@ -24,62 +29,18 @@
             />
             <check-field
                 label="Ваши увлечения"
+                type="checkbox"
                 :error="errors.hobby"
-            >
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Спорт"
-                    label="Спорт"
-                />
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Видео игры"
-                    label="Видео игры"
-                />
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Кино"
-                    label="Кино"
-                />
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Театр"
-                    label="Театр"
-                />
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Книги"
-                    label="Книги"
-                />
-                <check-field-item 
-                    v-model="form.hobby"
-                    :error="errors.hobby"
-                    value="Прогулки"
-                    label="Прогулки"
-                />
-            </check-field>
+                v-model="form.hobby"
+                :values="checkBoxes"
+            />
             <check-field
                 label="Пол"
+                type="radio"
                 :error="errors.sex"
-            >
-                <radio-field-item 
-                    v-model="form.sex"
-                    :error="errors.sex"
-                    value="Мужчина"
-                    label="Мужчина"
-                />
-                <radio-field-item 
-                    v-model="form.sex"
-                    :error="errors.sex"
-                    value="Женщина"
-                    label="Женщина"
-                />
-            </check-field>
+                v-model="form.sex"
+                :values="radio"
+            />
             <div class="actions">
                 <button class="submit-button">Отправить</button>
             </div>
@@ -90,8 +51,7 @@
 <script>
 import TextField from '../components/form/TextFormField';
 import CheckField from '../components/form/CheckFormField';
-import CheckFieldItem from '../components/form/CheckFormFieldItem';
-import RadioFieldItem from '../components/form/RadioFormFieldItem';
+import SelectField from '../components/form/SelectFormField';
 
 import { mapActions, mapGetters } from 'vuex';
 import { routes, defaultVuex } from '../support';
@@ -99,15 +59,15 @@ import { routes, defaultVuex } from '../support';
 export default {
     components: {
         TextField,
-        CheckFieldItem,
-        RadioFieldItem,
-        CheckField
+        CheckField,
+        SelectField
     },
     data() {
         return {
             form: {
                 name: '',
                 birthdate: '',
+                sity: '',
                 bio: '',
                 hobby: [],
                 sex: null
@@ -115,10 +75,31 @@ export default {
             errors: {
                 name: null,
                 birthdate: null,
+                sity: null,
                 bio: null,
                 hobby: null,
                 sex: null
-            }
+            },
+            checkBoxes: [
+                {value: 'Спорт', label: 'Спорт'},
+                {value: 'Видео игры', label: 'Видео игры'},
+                {value: 'Кино', label: 'Кино'},
+                {value: 'Театр', label: 'Театр'},
+                {value: 'Книги', label: 'Книги'},
+                {value: 'Прогулки', label: 'Прогулки'}
+            ],
+            radio: [
+                {value: 'Мужчина', label: 'Мужчина'},
+                {value: 'Женщина', label: 'Женщина'},
+            ],
+            dropDown: [
+                { label: 'Выберите город', disabled: true},
+                {value: 'Москва', label: 'Москва'},
+                {value: 'Санкт-Петербург', label: 'Санкт-Петербург'},
+                {value: 'Тула', label: 'Тула'},
+                {value: 'Орел', label: 'Орел'},
+                {value: 'Калуга', label: 'Калуга'}
+            ]
         }
     },
     computed: {
@@ -151,6 +132,10 @@ export default {
 
             if (!this.form.birthdate) {
                 this.errors.birthdate = 'Введите дату рождения';
+            }
+
+            if (!this.form.sity) {
+                this.errors.sity = 'Выберите город';
             }
             
             if (!this.form.bio) {

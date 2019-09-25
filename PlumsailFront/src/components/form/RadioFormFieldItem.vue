@@ -2,7 +2,7 @@
   <div class="wrapper">
     <label class="title radio" :for="id">
       <input 
-        :class="`input ${valideClass}`" 
+        class="input" 
         :id="id" 
         type="radio" 
         :checked="shouldBeChecked" 
@@ -30,26 +30,16 @@ export default {
     label: {
       type: String,
       required: true
-    },
-    error: String
+    }
   },
   data() {
       return {
-        _id: null
+        id: `f${(~~(Math.random()*1e8)).toString(16)}`
       }
   },
   computed: {
     shouldBeChecked() {
       return this.modelValue == this.value
-    },
-    id() {
-        if (!this._id) {
-            this._id = `f${(~~(Math.random()*1e8)).toString(16)}`;
-        }
-        return this._id;
-    },
-    valideClass() {
-        return this.error ? 'form-error-input' : '';
     }
   },
   methods: {

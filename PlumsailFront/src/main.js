@@ -5,6 +5,9 @@ import { sync } from 'vuex-router-sync';
 import {createStore} from './store';
 import {createRouter} from './router';
 
+import moment from 'moment';
+Vue.prototype.$moment = moment;
+
 import '../public/styles.css';
 
 const store = createStore();

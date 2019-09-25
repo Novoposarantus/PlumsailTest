@@ -4,7 +4,7 @@
         <component
             :is="component"
             v-bind="$props"
-            :class="`input ${valideClass}`" 
+            :class="`form-input ${valideClass}`" 
             :id="id"
             @input="handler($event)"
         />
@@ -62,11 +62,10 @@ export default {
         size: String,
         src: String,
         step: String,
-        tabindex: String,
     },
     data() {
         return {
-            _id: null
+            id: `f${(~~(Math.random()*1e8)).toString(16)}`
         }
     },
     computed: {
@@ -77,14 +76,15 @@ export default {
 
             return 'input';
         },
-        id() {
-            if (!this._id) {
-                this._id = `f${(~~(Math.random()*1e8)).toString(16)}`;
-            }
-            return this._id;
-        },
         valideClass() {
-            return this.error ? 'error-input' : '';
+            return this.error ? 'form-error-input' : '';
+        },
+        textProps(){
+            return {
+                ...this.$props,
+                label: undefined,
+                error: undefined
+            }
         }
     },
     methods: {
@@ -96,27 +96,6 @@ export default {
 </script>
 
 <style scoped>
-
-.input {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    font-size: 18px;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    background: #ffffff !important;
-    outline: none;
-    padding: 3px 5px;
-    box-sizing: border-box;
-}
-
-
-.error-input {
-    border: 1px solid #e97272;
-}
 
 .input::-webkit-scrollbar-thumb {
     border-radius: 2px;
